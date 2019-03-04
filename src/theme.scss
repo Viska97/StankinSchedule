@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+$stankinschedule-primary: mat-palette($mat-red, 900);
+$stankinschedule-accent : mat-palette($mat-amber);
+$stankinschedule-warn   : mat-palette($mat-red);
+$stankinschedule: mat-light-theme(
+    $stankinschedule-primary,
+    $stankinschedule-accent,
+    $stankinschedule-warn
+);

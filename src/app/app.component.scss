@@ -1,0 +1,54 @@
+.mat-elevation-z5 {
+    min-height:56px;
+    max-height:56px;
+    top: 0;
+    position: fixed;
+    z-index: 9;
+  }
+  
+  .mat-toolbar{
+    height: 7vh;
+  }
+  
+  div {
+    overflow: inherit;
+  }
+  
+  .mat-sidenav-container{
+    background-color: #424242;
+    min-height: 93vh !important;
+  }
+  
+  a{
+    text-decoration: none;
+    white-space: normal;
+  }
+  
+  button{
+    min-width: min-content;
+  }
+  
+  .icon {
+    padding: 0 14px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .container {
+    min-height: 100% !important;
+    position: fixed;
+    margin-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }

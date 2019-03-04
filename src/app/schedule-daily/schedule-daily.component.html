@@ -1,0 +1,62 @@
+<div class="example-container mat-elevation-z8">
+    <mat-card>      
+      
+        <mat-form-field class="card-item">
+            <mat-select placeholder="Группа" [(value)]="classId" (selectionChange)="onClassChanged($event)">
+              <mat-option *ngFor="let class of classes" [value]="class.id">
+                {{class.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <mat-form-field class="card-item">
+              <mat-select placeholder="Подгруппа" [(value)]="subclassId" (selectionChange)="onSubclassChanged($event)">
+                <mat-option *ngFor="let subclass of subclasses" [value]="subclass.id">
+                  {{subclass.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        
+          <mat-form-field class="card-item">
+              <input matInput [(ngModel)]="selectedDate" [matDatepicker]="picker" placeholder="Дата" (dateChange)="addEvent('change', $event)">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+    </mat-card>
+    <div class="example-loading-shade"
+         *ngIf="isLoadingResults || isNoStudies">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+      <div class="example-rate-limit-reached" *ngIf="isNoStudies">
+        Занятия не найдены
+      </div>
+    </div>
+  
+    <div class="example-table-container">
+
+    <mat-table [dataSource]="studies" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="time">
+          <mat-header-cell *matHeaderCellDef>Время</mat-header-cell>
+          <mat-cell *matCellDef="let study"> {{study.time}} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="room">
+          <mat-header-cell *matHeaderCellDef>Аудитория</mat-header-cell>
+          <mat-cell *matCellDef="let study"> {{study.room}} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="subject">
+          <mat-header-cell *matHeaderCellDef>Предмет</mat-header-cell>
+          <mat-cell *matCellDef="let study"> {{study.subject}} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="teacher">
+          <mat-header-cell *matHeaderCellDef>Преподаватель</mat-header-cell>
+          <mat-cell *matCellDef="let study"> {{study.teacher}} </mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns, sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>  
+    </div>
+</div>
